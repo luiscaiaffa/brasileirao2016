@@ -16,10 +16,8 @@ for team in teamList:
 		get_html = urlopen(link['href'])
 		html = BeautifulSoup(get_html.read(), 'html.parser')
 		jogoList = html.findAll('div', class_="tabela-jogos")
-
 		print ("=========================BEGIN================================")
 		print (link['title'])
-
 		for jogo in jogoList:
 			date = jogo.find('h4', class_="blue blue2").text.strip()
 			hour = jogo.find('div', class_="full-game-time").text.strip()
@@ -28,7 +26,6 @@ for team in teamList:
 			location = jogo.find('div', class_="full-game-location-changes").text.strip() 
 			location = location[10:].strip()
 			print(date, hour, team1,team2, location)
-		
 		print ("===========================END================================")
 
 
